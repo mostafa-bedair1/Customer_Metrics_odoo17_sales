@@ -1,0 +1,51 @@
+<odoo>
+    <!-- Tree View for Customer Metrics -->
+    <record id="view_customer_metrics_tree" model="ir.ui.view">
+        <field name="name">customer.metrics.tree</field>
+        <field name="model">res.partner.customer_metrics</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Sales Metrics">
+                <field name="customer_id"/>
+                <field name="total_sales" widget="monetary"/>
+                <field name="order_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Customer Metrics -->
+    <record id="view_customer_metrics_form" model="ir.ui.view">
+        <field name="name">customer.metrics.form</field>
+        <field name="model">res.partner.customer_metrics</field>
+        <field name="arch" type="xml">
+            <form string="Customer Sales Metrics">
+                <sheet>
+                     <group>
+                        <field name="customer_id"/>
+                        <field name="total_sales" widget="monetary"/>
+                        <field name="order_count"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the customer metrics view -->
+    <record id="action_customer_metrics" model="ir.actions.act_window">
+        <field name="name">Customer Metrics</field>
+        <field name="res_model">res.partner.customer_metrics</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                View and analyze customer sales metrics,  total sales and order count.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu item for accessing the customer metrics -->
+
+    <menuitem id="menu_customer_metrics"
+              name="Customer Metrics"
+
+              action="action_customer_metrics"
+              sequence="5"/>
+</odoo>
